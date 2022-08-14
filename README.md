@@ -36,42 +36,8 @@ export default Hello;
 </div>
 <br>
 
-> App.js file
-
-```javascript
-import Hello from "./component/Hello";
-import "./App.css";
-
-function App() {
-  const name = "react";
-  const style = {
-    backgroundColor: "black",
-    color: "aqua",
-    fontSize: 24,
-    padding: "1rem",
-  };
-  return (
-    <>
-      {/*block comment*/}
-      <Hello />
-      <div style={style}>{name}</div>
-      <div className="gray-box"></div>
-    </>
-  );
-}
-
-export default App;
-```
-
-> App.css file
-
-```javascript
-.gray-box {
-    background: grey;
-    width: 64px;
-    height: 64px;
-}
-```
+> App.js
+> App.css
 
 1. 태그는 무조건 닫아주기. selfclosing사용하기
 2. 2개 이상의 태그는 하나의 태그로 감싸주기. <></> = Fragment
@@ -90,4 +56,29 @@ export default App;
 4. 해당 컴포넌트에 컴포넌트.defaultProps = { key: value, } 형태로 속성값 없을시 default 설정가능
 5. children을 인자값으로 자식태그, 내용 전달가능
 
-### 1장 - 05
+<div class=title>
+    4. 조건부 렌더링
+</div>
+<br>
+
+1. 삼항연산자 or &&연산자를 통해 설정
+2. props boolean값에 속성만 적으면 true로 인식
+
+<div class=title>
+    5. useState를 통한 동적 상태 관리
+</div>
+<br>
+
+> Counter.js
+
+<div class=title>
+    6. react in input 상태 관리하기
+</div>
+<br>
+
+> InputSample.js
+
+<div class=title>
+    7. 여러개의 input 상태 관리하기
+</div>
+<br>
