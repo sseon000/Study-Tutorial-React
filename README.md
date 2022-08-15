@@ -82,3 +82,27 @@ export default Hello;
     7. 여러개의 input 상태 관리하기
 </div>
 <br>
+
+<div class=title>
+    8. useRef로 특정 DOM 선택하기
+</div>
+<br>
+
+1. DOM제어 기술!!
+
+> InputSample.js
+
+<div class=title>
+    9. 배열 렌더링하기
+</div>
+<br>
+
+1. 배열 내장함수 map을 사용하기
+2. key선언해주기 -> 고유값이 없을땐 map인자값 index활용해주기
+
+<div class=title>
+    10. useRef로 컴포넌트 안의 변수 만들기
+</div>
+<br>
+
+1. useState로 관리해도 되지만 리렌더링되지 않게 변수값을 사용하고 싶을때 사용!
