@@ -42,7 +42,7 @@ const onCreate = () => {
     <br />
     <InputSample />
     <br />
-    <UserList users={users}/>
+    <UserList users={users} />
   </>
   );
 }
