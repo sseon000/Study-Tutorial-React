@@ -97,3 +97,33 @@ export default Hello;
 ### useCallback을 사용하여 함수 재사용하기
 
 1. 기존함수를 재사용
+
+### React.memo를 사용한 컴포넌트 리런더링 방지
+
+1. 컴포넌트 리렌더링 최적화
+
+### useReducer Hook
+
+1. useState 대신 상태를 업데이트 함
+2. 상태 업데이트 로직을 컴포넌트 밖으로 분리 가능
+
+```javascript
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+const [number, dispatch] = useReducer(reducer, 0);
+
+dispatch({ type: "INCREMENT" });
+```
+
+### useReducer - App에서 useReducer 사용하기
+
+1. useReduver vs useState 비교해보기
