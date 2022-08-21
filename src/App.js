@@ -3,6 +3,7 @@ import Counter from "./component/Counter";
 import CreateUser from './component/CreateUser';
 import Hello from "./component/Hello";
 import InputSample from "./component/InputSample";
+import useInputs from './component/useInputs';
 import UserList from "./component/UserList";
 import Wrapper from "./component/Wrapper";
 
@@ -12,10 +13,10 @@ function countActiveUsers(users) {
 }
 
 const initialState = {
-  inputs: {
+/*   inputs: {
     username: '',
     email: '',
-  },
+  }, */
   users: [
     {
         id: 1,
@@ -40,14 +41,14 @@ const initialState = {
 
 function reducer(state, action){
   switch (action.type) {
-    case 'CHANGE_INPUT':
+   /*  case 'CHANGE_INPUT':
       return {
         ...state,
         inputs: {
           ...state.inputs,
           [action.name]: action.value
         }
-      };
+      }; */
     case 'CRATE_USER':
       return {
         inputs: initialState.inputs,
@@ -75,18 +76,23 @@ function reducer(state, action){
 function App() {
   //      상태, dispatch               reducer, 초기값들
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [form, onChange, reset] = useInputs({
+    username: '',
+    email: '',
+  });
+  const { username, email } = form
   const nextId = useRef(4)
   const { users } = state;
-  const { username, email } = state.inputs;
+  /*const { username, email } = state.inputs;
 
-  const onChange = useCallback(e => {
+   const onChange = useCallback(e => {
     const { name, value } = e.target;
     dispatch({
       type: 'CHANGE_INPUT',
       name,
       value
     })
-  }, [])
+  }, []) */
 
   const onCreate = useCallback(() => {
     dispatch({
@@ -97,8 +103,9 @@ function App() {
         email,
       }
     });
+    reset();
     nextId.current += 1;
-  }, [username, email])
+  }, [username, email, reset])
 
   const onToggle = useCallback(id => {
     dispatch({

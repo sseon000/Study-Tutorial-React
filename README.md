@@ -127,3 +127,5 @@ dispatch({ type: "INCREMENT" });
 ### useReducer - App에서 useReducer 사용하기
 
 1. useReduver vs useState 비교해보기
+
+### 커스텀 Hook 만들어서 사용하기
