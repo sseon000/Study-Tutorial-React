@@ -129,3 +129,28 @@ dispatch({ type: "INCREMENT" });
 1. useReduver vs useState 비교해보기
 
 ### 커스텀 Hook 만들어서 사용하기
+
+### Context API를 사용한 전역 값 관리
+
+### UserDispatch Context 만들기
+
+1. User컴포넌트에서 사용하는 onToggle, onRemove함수를 Userlist컴포넌트를 통해 전달하는 문제
+   전역 값을 통해 해결하기
+
+### immer(라이브러리)를 사용한 더 쉬운 불변성 지키기 (pass)
+
+```javascript
+const object = {
+  a: 1,
+  b: 2,
+};
+
+object.b = 3; // x
+
+const nextObject = {
+  ...object,
+  b: 3,
+}; // o
+```
+
+### class형 컴포넌트
