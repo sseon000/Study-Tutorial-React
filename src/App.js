@@ -1,43 +1,43 @@
-import React, { useMemo, useReducer } from 'react'
+import React, { useMemo, useReducer } from 'react';
+import Counter from './component/Counter';
 import CreateUser from './component/CreateUser';
-import UserList from "./component/UserList";
-
+import UserList from './component/UserList';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
-  return users.filter(user => user.active).length;
+  return users.filter((user) => user.active).length;
 }
 
 const initialState = {
-/*   inputs: {
+  /*   inputs: {
     username: '',
     email: '',
   }, */
   users: [
     {
-        id: 1,
-        username: 'velopert',
-        email: 'public.velopert@gamail.com',
-        active: true,
+      id: 1,
+      username: 'velopert',
+      email: 'public.velopert@gamail.com',
+      active: true,
     },
     {
-        id: 2,
-        username: 'velopert2',
-        email: 'public.velopert2@gamail.com',
-        active: false,
+      id: 2,
+      username: 'velopert2',
+      email: 'public.velopert2@gamail.com',
+      active: false,
     },
     {
-        id: 3,
-        username: 'velopert3',
-        email: 'public.velopert3@gamail.com',
-        active: false,
+      id: 3,
+      username: 'velopert3',
+      email: 'public.velopert3@gamail.com',
+      active: false,
     },
-  ]
-}
+  ],
+};
 
-function reducer(state, action){
+function reducer(state, action) {
   switch (action.type) {
-   /*  case 'CHANGE_INPUT':
+    /*  case 'CHANGE_INPUT':
       return {
         ...state,
         inputs: {
@@ -48,24 +48,22 @@ function reducer(state, action){
     case 'CREATE_USER':
       return {
         inputs: initialState.inputs,
-        users: state.users.concat(action.user)
+        users: state.users.concat(action.user),
       };
     case 'TOGGLE_USER':
       return {
         ...state,
-        users: state.users.map(user => 
-          user.id === action.id
-            ? {...user, active: !user.active }
-            : user
-            )
+        users: state.users.map((user) =>
+          user.id === action.id ? { ...user, active: !user.active } : user,
+        ),
       };
-      case 'REMOVE_USER':
-        return {
-          ...state,
-          users: state.users.filter(user => user.id !== action.id)
-        };
-      default:
-        return state;
+    case 'REMOVE_USER':
+      return {
+        ...state,
+        users: state.users.filter((user) => user.id !== action.id),
+      };
+    default:
+      return state;
   }
 }
 
@@ -74,12 +72,12 @@ export const UserDispatch = React.createContext(null);
 function App() {
   //      상태, dispatch               reducer, 초기값들
   const [state, dispatch] = useReducer(reducer, initialState);
- /*  const [form, onChange, reset] = useInputs({
+  /*  const [form, onChange, reset] = useInputs({
     username: '',
     email: '',
   }); */
-/*   const { username, email } = form */
- /*  const nextId = useRef(4) */
+  /*   const { username, email } = form */
+  /*  const nextId = useRef(4) */
   const { users } = state;
   /*const { username, email } = state.inputs;
 
@@ -92,7 +90,7 @@ function App() {
     })
   }, []) */
 
- /*  const onCreate = useCallback(() => {
+  /*  const onCreate = useCallback(() => {
     dispatch({
       type: 'CRATE_USER',
       user: {
@@ -108,20 +106,20 @@ function App() {
   const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
-    <UserDispatch.Provider value={dispatch}>
-        <CreateUser 
-      /*     username={username}
+    <>
+      <UserDispatch.Provider value={dispatch}>
+        <CreateUser
+        /*     username={username}
           email={email} 
           onChange={onChange}
-          onCreate={onCreate}  */             
+          onCreate={onCreate}  */
         />
-        <UserList 
-          users={users} 
-        />
+        <UserList users={users} />
         <div>활성 사용자 수: {count}</div>
       </UserDispatch.Provider>
-  )
-
+      <Counter />
+    </>
+  );
 }
 
 export default App;

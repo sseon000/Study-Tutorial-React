@@ -8,7 +8,7 @@
 2. Hello.js 파일 만들기
 
 ```javascript
-import React from "react";
+import React from 'react';
 
 const Hello = () => {
   return <div>안녕하세요</div>;
@@ -110,9 +110,9 @@ export default Hello;
 ```javascript
 function reducer(state, action) {
   switch (action.type) {
-    case "INCREMENT":
+    case 'INCREMENT':
       return state + 1;
-    case "DECREMENT":
+    case 'DECREMENT':
       return state - 1;
     default:
       return state;
@@ -121,7 +121,7 @@ function reducer(state, action) {
 
 const [number, dispatch] = useReducer(reducer, 0);
 
-dispatch({ type: "INCREMENT" });
+dispatch({ type: 'INCREMENT' });
 ```
 
 ### useReducer - App에서 useReducer 사용하기
@@ -153,4 +153,8 @@ const nextObject = {
 }; // o
 ```
 
-### class형 컴포넌트
+### Prettier
+
+### ESLint
+
+### Snippet
